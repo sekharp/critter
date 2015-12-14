@@ -1,0 +1,105 @@
+  [1m[36m (286.0ms)[0m  [1mDROP DATABASE IF EXISTS "oauth-workshop_test"[0m
+  [1m[35m (839.8ms)[0m  CREATE DATABASE "oauth-workshop_test" ENCODING = 'unicode'
+  [1m[36mSQL (2.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (14.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying, "screen_name" character varying, "uid" character varying, "oauth_token" character varying, "oauth_token_secret" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (2.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151214165517')
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.2ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (2.7ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (1.8ms)[0m  [1mINSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:16:05', '2015-12-14 17:16:05', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:16:05', '2015-12-14 17:16:05', 298486374)
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UserLogsInWithTwitterTest: test_logging_in
+------------------------------------------
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (1.6ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:16:25', '2015-12-14 17:16:25', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:16:25', '2015-12-14 17:16:25', 298486374)
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UserLogsInWithTwitterTest: test_logging_in
+------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-12-14 10:16:25 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 355ms (Views: 354.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (2.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.9ms)[0m  [1mINSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:17:43', '2015-12-14 17:17:43', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:17:43', '2015-12-14 17:17:43', 298486374)
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UserLogsInWithTwitterTest: test_logging_in
+------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-12-14 10:17:43 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 228ms (Views: 227.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (1.8ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:18:09', '2015-12-14 17:18:09', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:18:09', '2015-12-14 17:18:09', 298486374)
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UserLogsInWithTwitterTest: test_logging_in
+------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-12-14 10:18:09 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 198ms (Views: 197.4ms | ActiveRecord: 0.0ms)
+Started GET "/auth/twitter" for 127.0.0.1 at 2015-12-14 10:18:10 -0700
+Started GET "/oauth/authenticate?oauth_token=7nTGqwAAAAAAjOxsAAABUaF_2Q0" for 127.0.0.1 at 2015-12-14 10:18:10 -0700
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (3.0ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:21:21', '2015-12-14 17:21:21', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "screen_name", "uid", "oauth_token", "oauth_token_secret", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-12-14 17:21:21', '2015-12-14 17:21:21', 298486374)
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UserLogsInWithTwitterTest: test_logging_in
+------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-12-14 10:21:21 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 192ms (Views: 191.6ms | ActiveRecord: 0.0ms)
+Started GET "/auth/twitter" for 127.0.0.1 at 2015-12-14 10:21:21 -0700
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-12-14 10:21:21 -0700
+Processing by SessionsController#create as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "screen_name", "oauth_token", "oauth_token_secret", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Horace"], ["screen_name", "worace"], ["oauth_token", "pizza"], ["oauth_token_secret", "secretpizza"], ["created_at", "2015-12-14 17:21:21.939326"], ["updated_at", "2015-12-14 17:21:21.939326"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 26ms (ActiveRecord: 2.0ms)
+Started GET "/" for 127.0.0.1 at 2015-12-14 10:21:21 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190963]]
+  Rendered welcome/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
