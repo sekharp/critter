@@ -27,23 +27,25 @@
 
 <div class="callout large primary">
 <div class="row column text-center">
-<h1><%= @user.name %>'s Twitter Feed</h1>
+<h1><%= current_user.twitter.user.name if current_user %>'s Twitter Feed</h1>
 </div>
 </div>
 <div class="row" id="content">
 <div class="medium-8 columns">
 
-<% @twitter.home_timeline.each do |tweet| %>
-<% url = tweet.user.profile_image_url.to_s %>
-<div class="blog-post">
-<img class="thumbnail small-4" src="<%= url[0..-12] %>.jpg">
-<p><%= tweet.text %><br><br></p>
-<div class="callout">
-<ul class="menu simple">
-<li><a href="#">Author: <%= tweet.user.name %></a></li>
-</ul>
-</div>
-</div>
+<% if current_user %>
+  <% current_user.twitter.home_timeline.each do |tweet| %>
+  <% url = tweet.user.profile_image_url.to_s %>
+  <div class="blog-post">
+  <img class="thumbnail small-4" src="<%= url[0..-12] %>.jpg">
+  <p><%= tweet.text %><br><br></p>
+  <div class="callout">
+  <ul class="menu simple">
+  <li><a href="<%= tweet.user.url %>">Author: <%= tweet.user.name %></a></li>
+  </ul>
+  </div>
+  </div>
+  <% end %>
 <% end %>
 
 <div class="blog-post">
