@@ -11,7 +11,7 @@
 <div class="top-bar">
 <div class="top-bar-left">
 <ul class="menu">
-<li class="menu-text">Twitter</li>
+<li class="menu-text">Critter - Twitter for Sheep</li>
 </ul>
 </div>
 <div class="top-bar-right">
@@ -27,14 +27,14 @@
 
 <div class="callout large primary">
 <div class="row column text-center">
-<h1><%= current_user.twitter.user.name if current_user %>'s Twitter Feed</h1>
+<h1><%= @service.client.user.name %>'s Twitter Feed</h1>
 </div>
 </div>
 <div class="row" id="content">
 <div class="medium-8 columns">
 
 <% if current_user %>
-  <% current_user.twitter.home_timeline.each do |tweet| %>
+  <% @service.client.home_timeline.each do |tweet| %>
   <% url = tweet.user.profile_image_url.to_s %>
   <div class="blog-post">
   <img class="thumbnail small-4" src="<%= url[0..-12] %>.jpg">
@@ -84,19 +84,12 @@
 </div>
 <div class="medium-3 columns" data-sticky-container>
 <div class="sticky" data-sticky data-anchor="content">
-<h4>Categories</h4>
-<ul>
-<li><a href="#">Skyler</a></li>
-<li><a href="#">Jesse</a></li>
-<li><a href="#">Mike</a></li>
-<li><a href="#">Holly</a></li>
-</ul>
 <h4>Authors</h4>
 <ul>
-<li><a href="#">Skyler</a></li>
-<li><a href="#">Jesse</a></li>
-<li><a href="#">Mike</a></li>
-<li><a href="#">Holly</a></li>
+<li><a href="#">Bernie Sanders</a></li>
+<li><a href="#">Amy Schumer</a></li>
+<li><a href="#">Jeff Casimir</a></li>
+<li><a href="#">Josh Cheek</a></li>
 </ul>
 </div>
 </div>

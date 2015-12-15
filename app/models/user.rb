@@ -6,16 +6,6 @@ class User < ActiveRecord::Base
       new_user.screen_name        = auth_info.extra.raw_info.screen_name
       new_user.oauth_token        = auth_info.credentials.token
       new_user.oauth_token_secret = auth_info.credentials.secret
-      user.save
-    end
-  end
-
-  def twitter
-    Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_KEY']
-      config.consumer_secret     = ENV['TWITTER_SECRET']
-      config.access_token        = ENV['ACCESS_TOKEN']
-      config.access_token_secret = ENV['ACCESS_SECRET']
     end
   end
 end
