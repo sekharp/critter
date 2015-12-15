@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'twitter'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -37,6 +38,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'capybara'
+  gem 'pry-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'simplecov', require: false
 end
 
 group :development do
