@@ -27,7 +27,7 @@
 
 <div class="callout large primary">
 <div class="row column text-center">
-<h1><%= @service.client.user.name %>'s Twitter Feed</h1>
+<h1><%= @service.client.user.name %>'s Critter Feed</h1>
 </div>
 </div>
 <div class="row" id="content">
@@ -35,52 +35,33 @@
 
 <% if current_user %>
   <% @service.client.home_timeline.each do |tweet| %>
-  <% url = tweet.user.profile_image_url.to_s %>
   <div class="blog-post">
-  <img class="thumbnail small-4" src="<%= url[0..-12] %>.jpg">
-  <p><%= tweet.text %><br><br></p>
+  <img class="thumbnail" src="<%= tweet.user.profile_image_url %>">
+  <% tweet.text.split(/\W+/).map!.with_index do |word, index| %>
+    <% if index % 4 == 0 %>
+    <%= word = "baa" %>
+    <% elsif index % 4 == 2 %>
+    <%= word = "sheep" %>
+    <% elsif word[0..3] == "http" %>
+    <%= word = "" %>
+    <% else %>
+    <%= word %>
+    <% end %>
+  <% end %><br><br>
   <div class="callout">
   <ul class="menu simple">
-  <li><a href="<%= tweet.user.url %>">Author: <%= tweet.user.name %></a></li>
+  <li>Author: <%= tweet.user.name %></li>
+  <li><a href="<%= tweet.user.url %>">@<%= tweet.user.screen_name %></a></li>
+  <li><a><%= tweet.retweet_count %> Retweets</a></li>
+  <li><a><%= tweet.favorite_count %> Favorites</a></li>
+  <span class="success badge"><%= link_to "Star", favorites_path(tweet_id: tweet.id), method: :post %></span>
   </ul>
   </div>
   </div>
   <% end %>
 <% end %>
 
-<div class="blog-post">
-<h3>Awesome blog post title <small>3/6/2015</small></h3>
-<img class="thumbnail" src="http://placehold.it/850x350">
-<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-<div class="callout">
-<ul class="menu simple">
-<li><a href="#">Author: Mike Mikers</a></li>
-<li><a href="#">Comments: 3</a></li>
-</ul>
-</div>
-</div>
-<div class="blog-post">
-<h3>Awesome blog post title <small>3/6/2015</small></h3>
-<img class="thumbnail" src="http://placehold.it/850x350">
-<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-<div class="callout">
-<ul class="menu simple">
-<li><a href="#">Author: Mike Mikers</a></li>
-<li><a href="#">Comments: 3</a></li>
-</ul>
-</div>
-</div>
-<div class="blog-post">
-<h3>Awesome blog post title <small>3/6/2015</small></h3>
-<img class="thumbnail" src="http://placehold.it/850x350">
-<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-<div class="callout">
-<ul class="menu simple">
-<li><a href="#">Author: Mike Mikers</a></li>
-<li><a href="#">Comments: 3</a></li>
-</ul>
-</div>
-</div>
+
 </div>
 <div class="medium-3 columns" data-sticky-container>
 <div class="sticky" data-sticky data-anchor="content">
