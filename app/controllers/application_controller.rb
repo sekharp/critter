@@ -7,5 +7,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  def service_connection
+    @service_connection ||= TwitterService.new(current_user)
+  end
+
+  # def current_client
+  #   @current_client ||= TwitterService.new(current_user).client
+  # end
+
+  helper_method :current_user, :service_connection, :current_client
 end

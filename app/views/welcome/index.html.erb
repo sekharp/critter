@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Foundation | Welcome</title>
+<title>Critter</title>
 <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
 <div class="callout large primary">
 <div class="row column text-center">
 <% if @service %>
-  <h1><%= @service.client.user.name %>'s Critter Feed</h1>
+  <h1><%= @name %>'s Critter Feed</h1>
 <% else %>
 <% end %>
 </div>
@@ -37,7 +37,7 @@
 <div class="medium-8 columns">
 
 <% if current_user %>
-  <% @service.client.home_timeline.each do |tweet| %>
+  <% @timeline.each do |tweet| %>
   <div class="blog-post">
   <img class="thumbnail" src="<%= tweet.user.profile_image_url %>">
   <% tweet.text.split(/\W+/).map!.with_index do |word, index| %>
@@ -57,7 +57,13 @@
   <li><a href="<%= tweet.user.url %>">@<%= tweet.user.screen_name %></a></li>
   <li><a><%= tweet.retweet_count %> Retweets</a></li>
   <li><a><%= tweet.favorite_count %> Favorites</a></li>
-  <span class="success badge"><%= link_to "Star", favorites_path(tweet_id: tweet.id), method: :post %></span>
+  <li>
+    <% if tweet.favorited? %>
+      <li>Favorited!</li>
+    <% else %>
+      <%= link_to "Favorite", favorites_path(tweet_id: tweet.id), method: :post %>
+    <% end %>
+  </li>
   </ul>
   </div>
   </div>
@@ -68,12 +74,18 @@
 </div>
 <div class="medium-3 columns" data-sticky-container>
 <div class="sticky" data-sticky data-anchor="content">
-<h4>Authors</h4>
+<h4><a href="<%= @service.user.url if @service %>">@<%= @service.user.screen_name if @service %></a></h4>
 <ul>
-<li><a href="#">Bernie Sanders</a></li>
-<li><a href="#">Amy Schumer</a></li>
-<li><a href="#">Jeff Casimir</a></li>
-<li><a href="#">Josh Cheek</a></li>
+<img class="thumbnail" src="<%= @service.user.profile_image_url if @service %>">
+<li>Follower Count: <%= @service.user.followers_count if @service %></li>
+<li>Following Count: <%= @service.user.friends_count if @service %></li>
+<% if @service %>
+  <%= form_tag(tweets_path, method: :post) do %>
+    <%= label_tag "Compose a Tweet" %>
+    <%= text_field_tag "tweet[text]" %>
+    <%= submit_tag "Tweet" %>
+  <% end %>
+<% end %>
 </ul>
 </div>
 </div>

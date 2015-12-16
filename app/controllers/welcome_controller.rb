@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    @service = TwitterService.new(current_user) unless current_user.nil?
+    @service = service_connection.client unless current_user.nil?
+    @timeline = service_connection.timeline
+    @name = service_connection.client.user.name
   end
 end

@@ -10,8 +10,12 @@ class TwitterService
     end
   end
 
-  def update(message)
+  def post(message)
     @client.update(message)
+  end
+
+  def timeline
+    @client.home_timeline
   end
 
   # TwitterService.new(current_user).update("hello world")
