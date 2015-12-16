@@ -9720,3 +9720,46 @@ Started GET "/assets/vendor/what-input.min.self-afca90dfa64d484300d1fa3bf890248f
 
 
 Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2015-12-15 21:11:06 -0700
+
+
+Started GET "/" for ::1 at 2015-12-16 09:00:46 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (852.6ms)
+Completed 200 OK in 1905ms (Views: 1790.5ms | ActiveRecord: 53.0ms)
+
+
+Started GET "/assets/foundation.self-c32902b7f65cb1bd7707442ee620bf9a0a030130c9867e98df01ef3811f569ff.css?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/foundation.min.self-5dbd3987374396929150288dc1dc3236cf33eadfe8f68e763f7b222efb055d88.css?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/app.self-c89b7a361593106453fbdf684c30721245fa53056e2c124bfc6fadfae32c9e55.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/foundation.self-d7182f21e5d1fd27bbab42ab635694c9904cf9e2d55735e8ef17ee4a77049371.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/foundation.min.self-f4c0d5e8be942184d194740adef0747c46e8ee485af9baee6ef941dcb4c3daf1.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/vendor/jquery.min.self-97d8f5e8a703d3d2aa6f6a2e3b0842d9f32841dabb5706704be961c994a7fe65.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/vendor/what-input.min.self-afca90dfa64d484300d1fa3bf890248fad1591d359c1efadc7f4baff86723f9b.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2015-12-16 09:00:49 -0700
