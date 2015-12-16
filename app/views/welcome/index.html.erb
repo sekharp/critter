@@ -27,7 +27,10 @@
 
 <div class="callout large primary">
 <div class="row column text-center">
-<h1><%= @service.client.user.name %>'s Critter Feed</h1>
+<% if @service %>
+  <h1><%= @service.client.user.name %>'s Critter Feed</h1>
+<% else %>
+<% end %>
 </div>
 </div>
 <div class="row" id="content">
