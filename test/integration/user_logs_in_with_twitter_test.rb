@@ -15,4 +15,17 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
       assert page.has_link?("Logout")
     end
   end
+
+  test "user can logout" do
+    VCR.use_cassette('user_logs_out') do
+      login_user
+
+      assert_equal "/dashboard", current_path
+      assert page.has_content?("Sekhar Paladugu's Critter Feed")
+      assert page.has_link?("Logout")
+
+      click_on "Logout"
+      assert page.has_link?("Login")
+    end
+  end
 end
