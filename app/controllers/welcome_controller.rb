@@ -4,4 +4,7 @@ class WelcomeController < ApplicationController
     @timeline = service_connection.timeline
     @name = service_connection.client.user.name
   end
+
+  def show
+  end
 end

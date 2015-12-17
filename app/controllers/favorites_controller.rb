@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def create
     service_connection.favorite(params[:tweet_id])
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 end

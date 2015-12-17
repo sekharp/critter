@@ -32,7 +32,7 @@ class TwitterServiceTest < ActiveSupport::TestCase
     VCR.use_cassette('twitter_service#tweet_count') do
       tweet_count = service.tweet_count
 
-      assert_equal 8, tweet_count
+      assert_equal 9, tweet_count
     end
   end
 

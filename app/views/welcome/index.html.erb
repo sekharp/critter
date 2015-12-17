@@ -8,23 +8,6 @@
 </head>
 <body>
 
-<div class="top-bar">
-<div class="top-bar-left">
-<ul class="menu">
-<li class="menu-text">Critter - Twitter for Sheep</li>
-</ul>
-</div>
-<div class="top-bar-right">
-<ul class="menu">
-<% if current_user %>
-<li><a href="<%= logout_path %>">Logout</a></li>
-<% else %>
-<li><a href="<%= login_path %>">Login</a></li>
-<% end %>
-</ul>
-</div>
-</div>
-
 <div class="callout large primary">
 <div class="row column text-center">
 <% if @service %>
@@ -78,7 +61,7 @@
 <ul>
 <img class="thumbnail" src="<%= @service.user.profile_image_url if @service %>">
 <li>Follower Count: <%= @service.user.followers_count if @service %></li>
-<li>Following Count: <%= @service.user.friends_count if @service %></li>
+<li>Friends Count: <%= @service.user.friends_count if @service %></li>
 <% if @service %>
   <%= form_tag(tweets_path, method: :post) do %>
     <%= label_tag "Compose a Tweet" %>

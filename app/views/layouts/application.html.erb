@@ -8,6 +8,23 @@
 </head>
 <body>
 
+  <div class="top-bar">
+  <div class="top-bar-left">
+  <ul class="menu">
+  <li class="menu-text">Critter - Twitter for Sheep</li>
+  </ul>
+  </div>
+  <div class="top-bar-right">
+  <ul class="menu">
+  <% if current_user %>
+  <li><a href="<%= logout_path %>">Logout</a></li>
+  <% else %>
+  <li><a href="<%= login_path %>">Login</a></li>
+  <% end %>
+  </ul>
+  </div>
+  </div>
+
 <%= yield %>
 
 </body>
