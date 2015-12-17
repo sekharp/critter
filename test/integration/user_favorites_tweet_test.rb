@@ -11,9 +11,13 @@ class UserFavoritesTweetTest < ActionDispatch::IntegrationTest
     VCR.use_cassette('user_can_favorite_tweets') do
       visit dashboard_path
 
-      first('.blog-post').click_link('Favorite')
+      within('.tweet-0') do
+        click_link('Favorite')
+      end
 
-      assert first('.blog-post').has_content?("Favorited")
+      within('.tweet-0') do
+        assert page.has_content?("Favorited")
+      end
     end
   end
 end

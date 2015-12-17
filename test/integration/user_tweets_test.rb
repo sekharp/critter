@@ -11,11 +11,10 @@ class UserTweetsTest < ActionDispatch::IntegrationTest
     VCR.use_cassette('user_tweets') do
       visit dashboard_path
 
-      save_and_open_page
       fill_in 'tweet[text]', with: 'Baa baa baa'
       click_button 'Tweet'
 
-      assert page.has_content? "Baa baa baa"
+      assert page.has_content? "baa baa sheep"
     end
   end
 end

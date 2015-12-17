@@ -10,18 +10,15 @@
 
 <div class="callout large primary">
 <div class="row column text-center">
-<% if @service %>
-  <h1><%= @name %>'s Critter Feed</h1>
-<% else %>
-<% end %>
+<h1><%= @name if @service %>'s Critter Feed</h1>
 </div>
 </div>
 <div class="row" id="content">
 <div class="medium-8 columns">
 
-<% if current_user %>
-  <% @timeline.each do |tweet| %>
-  <div class="blog-post">
+<% if @service %>
+  <% @timeline.each_with_index do |tweet, index| %>
+  <div class="tweet-<%= index %>">
   <img class="thumbnail" src="<%= tweet.user.profile_image_url %>">
   <% tweet.text.split(/\W+/).map!.with_index do |word, index| %>
     <% if index % 4 == 0 %>
@@ -62,12 +59,10 @@
 <img class="thumbnail" src="<%= @service.user.profile_image_url if @service %>">
 <li>Follower Count: <%= @service.user.followers_count if @service %></li>
 <li>Friends Count: <%= @service.user.friends_count if @service %></li>
-<% if @service %>
-  <%= form_tag(tweets_path, method: :post) do %>
-    <%= label_tag "Compose a Tweet" %>
-    <%= text_field_tag "tweet[text]" %>
-    <%= submit_tag "Tweet" %>
-  <% end %>
+<%= form_tag(tweets_path, method: :post) do %>
+  <%= label_tag "Compose a Tweet" %>
+  <%= text_field_tag "tweet[text]" %>
+  <%= submit_tag "Tweet" %>
 <% end %>
 </ul>
 </div>

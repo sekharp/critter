@@ -11,7 +11,8 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
       login_user
 
       assert_equal "/dashboard", current_path
-      assert page.has_content?("Sekhar Paladugu")
+      save_and_open_page
+      assert page.has_content?("Sekhar Paladugu's Critter Feed")
       assert page.has_link?("Logout")
     end
   end
