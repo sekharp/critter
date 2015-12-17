@@ -11,9 +11,5 @@ class ApplicationController < ActionController::Base
     @service_connection ||= TwitterService.new(current_user)
   end
 
-  # def current_client
-  #   @current_client ||= TwitterService.new(current_user).client
-  # end
-
-  helper_method :current_user, :service_connection, :current_client
+  helper_method :current_user, :service_connection
 end

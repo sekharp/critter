@@ -3,7 +3,7 @@ require 'test_helper'
 class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   def setup
-    Capybara.app = OauthWorkshop::Application
+    Capybara.app = Critter::Application
     stub_omniauth
   end
 
@@ -29,7 +29,8 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   end
 
   test "logging in" do
-    visit "/"
+    skip
+    visit root_path
     assert_equal 200, page.status_code
     click_link "Login"
     assert_equal "/", current_path

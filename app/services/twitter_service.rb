@@ -14,9 +14,24 @@ class TwitterService
     @client.update(message)
   end
 
+  def favorite(tweet)
+    @client.favorite(tweet)
+  end
+
   def timeline
     @client.home_timeline
   end
 
-  # TwitterService.new(current_user).update("hello world")
+  def follower_count
+    @client.user.followers_count
+  end
+
+  def tweet_count
+    @client.user.tweets_count
+  end
+
+  def friends_count
+    @client.user.friends_count
+  end
+
 end
