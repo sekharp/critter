@@ -1,10 +1,17 @@
 class WelcomeController < ApplicationController
+
   def index
-    @service = service_connection.client unless current_user.nil?
-    @timeline = service_connection.timeline unless current_user.nil?
-    @name = service_connection.client.user.name unless current_user.nil?
+    if current_user.nil?
+      redirect_to root_path
+    end
+    @service = service_connection.client
+    @timeline = service_connection.timeline
+    @name = service_connection.client.user.name
   end
 
   def show
+    if current_user
+      redirect_to dashboard_path
+    end
   end
 end

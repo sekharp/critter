@@ -11,5 +11,20 @@ class ApplicationController < ActionController::Base
     @service_connection ||= TwitterService.new(current_user)
   end
 
-  helper_method :current_user, :service_connection
+  def sheep_text(tweet)
+    baa_text = tweet.text.split(/\W+/).map!.with_index do |word, index|
+      if index % 4 == 0
+        word = "baa"
+      elsif index % 4 == 2
+        word = "sheep"
+      elsif word[0..3] == "http"
+        word = ""
+      else
+        word
+      end
+    end
+    baa_text.join(" ")
+  end
+
+  helper_method :current_user, :service_connection, :sheep_text
 end
